@@ -169,6 +169,8 @@ class ConfluencePageCopier(object):
                     )
         except requests.exceptions.HTTPError as e:
             if 400 <= e.response.status_code < 500:
+                self.log.debug("HTTP Error Code is:")
+                self.log.debug(e.response.status_code)
                 return None
             raise
 
